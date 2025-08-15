@@ -13,6 +13,7 @@ import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.time.Time;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
+import org.apache.flink.runtime.state.memory.MemoryStateBackend;
 import org.apache.flink.streaming.api.datastream.*;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
@@ -22,12 +23,7 @@ import org.apache.flink.util.OutputTag;
 import java.util.Date;
 import java.util.HashMap;
 
-/**
- * @Package com.retailersv1.DbusLogDataProcess2Kafka
- * @Author zhou.han
- * @Date 2024/12/23 14:27
- * @description: Log Task-02
- */
+
 public class DbusLogDataProcess2Kafka {
 
     private static final String kafka_topic_base_log_data = ConfigUtils.getString("REALTIME.KAFKA.LOG.TOPIC");
@@ -64,6 +60,7 @@ public class DbusLogDataProcess2Kafka {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
+        env.setStateBackend(new MemoryStateBackend());
 
         DataStreamSource<String> kafkaSourceDs = env.fromSource(
                 KafkaUtils.buildKafkaSource(

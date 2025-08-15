@@ -29,7 +29,7 @@ import java.util.Objects;
 public class DbusLoadingPg2Kafka {
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
-    private static final String kafka_topic_traffic_car_info = "realtime_v3_traffic_origin_data_info";
+    private static final String kafka_topic_traffic_car_info = "realtime_log";
     private static final int kafka_topic_partition_nums = 6;
     private static final short kafka_topic_replication_nums = 1;
 
@@ -44,7 +44,7 @@ public class DbusLoadingPg2Kafka {
 
         JdbcIncrementalSource<String> postgresIncrementalSource =
                 PostgresSourceBuilder.PostgresIncrementalSource.<String>builder()
-                        .hostname("10.160.60.14")
+                        .hostname("cdh01")
                         .port(5432)
                         .database("spider_db")
                         .schemaList("public")
