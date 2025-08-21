@@ -15,8 +15,6 @@ mysql.timezone=Asia/Shanghai
 mysql.database=realtime_v1
 mysql.user=root
 mysql.pwd=root
-
-
 mysql.databases.conf=realtime_v1_config
 
 # Redis 本地配置
@@ -52,7 +50,5 @@ holo.endpoint=
 ali.key=
 ali.pwd=
 
-# Hbase
-hbase.namespace=realtime
 
 
