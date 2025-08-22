@@ -1,6 +1,5 @@
 import com.alibaba.fastjson.JSONObject;
 import com.stream.common.utils.ConfigUtils;
-import com.stream.common.utils.KafkaUtils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.restartstrategy.RestartStrategies;
 import org.apache.flink.api.common.time.Time;
