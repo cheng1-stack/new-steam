@@ -70,7 +70,7 @@ public class DbusDwdCommonInfoToKafka {
                 "FROM comment_info AS c\n" +
                 "  JOIN base_dic FOR SYSTEM_TIME AS OF c.proc_time AS dic\n" +
                 "    ON c.appraise = dic.dic_code");
-        //joinTable.execute().print();
+//        joinTable.execute().print();
 
         // 将关联后的表数据写入 kafka
         tableEnv.executeSql("CREATE TABLE "+DWD_COMMENT_INFO+" (\n" +
